@@ -1,5 +1,5 @@
-const buttons = document.getElementById("buttons");
-const stpbutton = document.getElementById("stop");
+const buttons = document.querySelectorAll(".btn");
+const stopBtn = document.querySelector(".stop");
 
 let currentAudio = null;
 
@@ -18,7 +18,6 @@ buttons.forEach((button)=>{
 });
 
 stopBtn.addEventListener("click", () => {
-
   if (currentAudio) {
     currentAudio.pause();
     currentAudio.currentTime = 0;
