@@ -1,26 +1,26 @@
-const buttons = document.querySelectorAll(".btn");
-const stopBtn = document.querySelector(".stop");
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".btn");
+  const stopBtn = document.querySelector(".stop");
 
-let currentAudio = null;
+  let currentAudio = null;
 
-buttons.forEach((button)=>{
-	button.addEventListener("click", () =>{
-		if (currentAudio) {
-	      currentAudio.pause();
-	      currentAudio.currentTime = 0;
-	    }
-		
-    const soundName = button.innerText.trim();
-    currentAudio = new Audio(`sounds/${soundName}.mp3`);
-    currentAudio.play();
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+
+      const soundName = button.textContent.trim();
+      currentAudio = new Audio(`sounds/${soundName}.mp3`);
+      currentAudio.play();
+    });
   });
 
-});
-
-stopBtn.addEventListener("click", () => {
-  if (currentAudio) {
-    currentAudio.pause();
-    currentAudio.currentTime = 0;
-  }
-	
+  stopBtn.addEventListener("click", () => {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+  });
 });
