@@ -1,4 +1,4 @@
-const buttons = document.getElementById("btn");
+const buttons = document.getElementById("buttons");
 const stpbutton = document.getElementById("stop");
 
 let currentAudio = null;
