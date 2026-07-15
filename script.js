@@ -6,13 +6,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
+      // Remove previous audio
       if (currentAudio) {
         currentAudio.pause();
-        currentAudio.currentTime = 0;
+        currentAudio.remove();
       }
 
       const soundName = button.textContent.trim();
-      currentAudio = new Audio(`sounds/${soundName}.mp3`);
+
+      currentAudio = document.createElement("audio");
+      currentAudio.src = `sounds/${soundName}.mp3`;
+      currentAudio.autoplay = true;
+
+      document.body.appendChild(currentAudio);
+
       currentAudio.play();
     });
   });
